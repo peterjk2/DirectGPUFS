@@ -1,0 +1,3 @@
+[submodule "ssd-gpu-dma"]
+	path = ssd-gpu-dma
+	url = https://github.com/enfiskutensykkel/ssd-gpu-dma.git
