@@ -17,14 +17,14 @@ MAIN = mosaic LSH preprocessor
 
 #ifneq ($(dbg),1)
 #	MACROS=-DDEBUG_NOINLINE="" -DTIMING_STATS 
-#	CUFLAGS = --std=c++11 -O3 -rdc=true -maxrregcount=64 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37
-#	LINKFLAGS = -O3 -rdc=true -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37
+#	CUFLAGS = --std=c++11 -O3 -rdc=true -maxrregcount=64 -gencode arch=compute_75,code=sm_75
+#	LINKFLAGS = -O3 -rdc=true -gencode arch=compute_75,code=sm_75
 #	NVCC=$(CUDA_DIR)/bin/nvcc $(CUDA_INCLUDE) $(MACROS)
 #	GPUFSLIBS = -lgpufs -L$(GPUFSDIR)/lib
 #else
 #	MACROS=-DDEBUG_NOINLINE="__noinline__" -DMALLOC_STATS -DTIMING_STATS -DDEBUG
-#	CUFLAGS = --std=c++11 -O0 -rdc=true -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37
-#	LINKFLAGS = -O0 -rdc=true -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37
+#	CUFLAGS = --std=c++11 -O0 -rdc=true -gencode arch=compute_75,code=sm_75
+#	LINKFLAGS = -O0 -rdc=true -gencode arch=compute_75,code=sm_75
 #	NVCC=$(CUDA_DIR)/bin/nvcc $(CUDA_INCLUDE) $(MACROS)
 #	GPUFSLIBS = -lgpufsd -L$(GPUFSDIR)/lib
 #endif

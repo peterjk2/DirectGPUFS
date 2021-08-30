@@ -13,9 +13,6 @@ CXXFLAGS=-fopenmp -g -O2
 
 LIBGPUFSDIR=../../libgpufs/
 
-PAYLOAD=bigmatrix_mmap.cu
-include $(LIBGPUFSDIR)/Makefile
-
 bigmatrix_cpu.o: bigmatrix_cpu.cpp 
 
 bigmatrix_cpu: bigmatrix_cpu.o
@@ -27,5 +24,6 @@ bigmatrix_nofs: bigmatrix_nofs.cu
 bigmatrix_nofs_naive:bigmatrix_nofs_naive.cu
 	$(NVCC) -o bigmatrix_nofs_naive bigmatrix_nofs_naive.cu -I$(LIBGPUFSDIR)
 
-
+bigmatrix_mmap: bigmatrix_mmap.cu
+	$(NVCC) -o bigmatrix_mmap bigmatrix_mmap.cu -I$(LIBGPUFSDIR)
 
