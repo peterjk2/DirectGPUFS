@@ -145,7 +145,7 @@ void initializer(GPUGlobals_ptr* globals)
                         (*globals)->hashMap,
 			            temp);
 	
-	cudaThreadSynchronize();
+	cudaDeviceSynchronize();
 	CUDA_SAFE_CALL(cudaPeekAtLastError());
 
 //	pthread_attr_t attr;

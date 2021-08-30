@@ -23,11 +23,11 @@ CUDA_INCLUDE=-I$(CUDA_ROOT)/include -I$(GPUFSLIB) -I$(LIBGPUFSDIR)
 
 ifneq ($(dbg),1)
 	MACROS=-DDEBUG_NOINLINE=""
-	NVCC=$(CUDA_ROOT)/bin/nvcc -std=c++11 --generate-code code=sm_61,arch=compute_61 $(CUDA_INCLUDE) $(MACROS) -O3 -maxrregcount $(REG)
+	NVCC=$(CUDA_ROOT)/bin/nvcc -std=c++11 --generate-code code=sm_75,arch=compute_75 $(CUDA_INCLUDE) $(MACROS) -O3 -maxrregcount $(REG)
 	OUTPUTDIR=release
 else
 	MACROS=-DDEBUG_NOINLINE="__noinline__" -DMALLOC_STATS -DTIMING_STATS -g
-	NVCC=$(CUDA_ROOT)/bin/nvcc -std=c++11 --generate-code code=sm_61,arch=compute_61 $(CUDA_INCLUDE) $(MACROS) -O0 -maxrregcount $(REG) --device-debug --debug -G
+	NVCC=$(CUDA_ROOT)/bin/nvcc -std=c++11 --generate-code code=sm_75,arch=compute_75 $(CUDA_INCLUDE) $(MACROS) -O0 -maxrregcount $(REG) --device-debug --debug -G
 	OUTPUTDIR=debug
 endif
 
