@@ -141,7 +141,7 @@ install (TARGETS libnvm DESTINATION "lib")
 
 # Create kernel module makefile
 if (NOT no_module)
-    if (CUDA_FOUND AND NOT no_cuda AND EXISTS "${driver_dir}/Module.symvers")
+    if (CUDA_FOUND AND NOT no_cuda)
         set (module_ccflags "-D_CUDA -I${driver_include} -I${libnvm_root}")
         set (module_symbols "${driver_dir}/Module.symvers")
         message(STATUS "Configuring kernel module with CUDA")
